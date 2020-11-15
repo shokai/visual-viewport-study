@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
   textAreaHight = textInput.offsetHeight
 
   const lines = document.querySelector('#lines')
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 1000; i++) {
     const line = document.createElement('div')
     line.innerText = i
     lines.appendChild(line)
