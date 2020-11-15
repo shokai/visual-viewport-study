@@ -1,15 +1,16 @@
 let textInput, textInputHeight, lastScrolledAt
 
 function updateTextInputPosition () {
-  const offsetTop = visualViewport.offsetTop + visualViewport.height - textAreaHight;
-  textInput.style.setProperty('transform', `translate(${visualViewport.offsetLeft}px, ${offsetTop}px) scale(${1/visualViewport.scale})`)
+  const offsetTop = window.scrollY + visualViewport.height - textAreaHight;
+  textInput.style.setProperty('top', `${offsetTop}px`)
   const now = Date.now()
   if (lastScrolledAt) {
     textInput.innerHTML = [
       `scroll event interval: ${now - lastScrolledAt}msec`,
       `offsetTop: ${offsetTop}`,
       `visualViewport.height: ${visualViewport.height}`,
-      `visualViewport.offsetTop: ${visualViewport.offsetTop}`
+      `visualViewport.offsetTop: ${visualViewport.offsetTop}`,
+      `window.scrollY: ${window.scrollY}`
     ].join('\n')
   }
   lastScrolledAt = now
