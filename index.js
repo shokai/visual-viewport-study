@@ -1,7 +1,7 @@
 let textInput, textInputHeight, lastScrolledAt
 
 function updateTextInputPosition () {
-  const offsetTop = window.scrollY + visualViewport.height - textInputHeight;
+  const offsetTop = visualViewport.offsetTop + visualViewport.height - textInputHeight;
   textInput.style.setProperty('top', `${offsetTop}px`)
   const now = Date.now()
   if (lastScrolledAt) {
